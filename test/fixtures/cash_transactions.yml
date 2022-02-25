@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  desc_transaction: MyText
+  valor_transaction: 1.5
+  data_transection: 2022-02-17
+  fund_id: 1
+
+two:
+  desc_transaction: MyText
+  valor_transaction: 1.5
+  data_transection: 2022-02-17
+  fund_id: 1

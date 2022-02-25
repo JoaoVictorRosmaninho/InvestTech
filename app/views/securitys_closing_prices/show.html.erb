@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @securitys_closing_price %>
+
+<div>
+  <%= link_to "Edit this securitys closing price", edit_securitys_closing_price_path(@securitys_closing_price) %> |
+  <%= link_to "Back to securitys closing prices", securitys_closing_prices_path %>
+
+  <%= button_to "Destroy this securitys closing price", @securitys_closing_price, method: :delete %>
+</div>

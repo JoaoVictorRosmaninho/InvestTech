@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Securitys closing prices</h1>
+
+<div id="securitys_closing_prices">
+  <% @securitys_closing_prices.each do |securitys_closing_price| %>
+    <%= render securitys_closing_price %>
+    <p>
+      <%= link_to "Show this securitys closing price", securitys_closing_price %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New securitys closing price", new_securitys_closing_price_path %>

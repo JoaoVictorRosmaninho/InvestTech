@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  security_simbol: MyString
+  creation_date: 2022-02-17
+
+two:
+  security_simbol: MyString
+  creation_date: 2022-02-17

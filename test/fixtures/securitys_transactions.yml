@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  desc_transaction: MyText
+  value_transaction: 1.5
+  date_transaction: 2022-02-17
+  fund_id: 1
+  security_id: 1
+
+two:
+  desc_transaction: MyText
+  value_transaction: 1.5
+  date_transaction: 2022-02-17
+  fund_id: 1
+  security_id: 1

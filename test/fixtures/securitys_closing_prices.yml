@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  closing_price: 1.5
+  date_closing: 2022-02-17
+  security_id: 1
+
+two:
+  closing_price: 1.5
+  date_closing: 2022-02-17
+  security_id: 1

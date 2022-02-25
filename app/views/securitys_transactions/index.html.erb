@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Securitys transactions</h1>
+
+<div id="securitys_transactions">
+  <% @securitys_transactions.each do |securitys_transaction| %>
+    <%= render securitys_transaction %>
+    <p>
+      <%= link_to "Show this securitys transaction", securitys_transaction %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New securitys transaction", new_securitys_transaction_path %>
