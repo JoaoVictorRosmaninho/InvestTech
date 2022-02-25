@@ -3,7 +3,7 @@ class CashTransactionsController < ApplicationController
 
   # GET /cash_transactions or /cash_transactions.json
   def index
-    render json: CashTransaction.all
+    render json: CashTransaction.select("name_fund, desc_transaction, valor_transaction, data_transection").joins(:fund);
   end
 
   # GET /cash_transactions/1 or /cash_transactions/1.json
