@@ -1,6 +1,6 @@
 class FundsController < ApplicationController
-  before_action :set_fund, only: %i[ show edit update destroy ]
-
+  #before_action :set_fund, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
   # GET /funds or /funds.json
   def index
     render json: Fund.all

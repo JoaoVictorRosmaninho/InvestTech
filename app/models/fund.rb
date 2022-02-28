@@ -4,7 +4,7 @@ class Fund < ApplicationRecord
   
   def as_json(_option)
     super({ 
-        only: [:name_fund, :desc_fund, :creation_date] 
+      only: [:id, :name_fund, :desc_fund, :creation_date] 
     })
   end
 end

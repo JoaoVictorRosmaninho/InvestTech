@@ -3,7 +3,7 @@ class SecuritysTransactionsController < ApplicationController
 
   # GET /securitys_transactions or /securitys_transactions.json
   def index
-    @securitys_transactions = SecuritysTransaction.all
+    render json: SecuritysTransaction.select("name_fund, desc_transaction, value_transaction, security_simbol, date_transaction").joins(:fund, :security);
   end
 
   # GET /securitys_transactions/1 or /securitys_transactions/1.json

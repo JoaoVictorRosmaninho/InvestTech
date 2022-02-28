@@ -3,7 +3,7 @@ class SecuritiesController < ApplicationController
 
   # GET /securities or /securities.json
   def index
-    @securities = Security.all
+    render json:  Security.all
   end
 
   # GET /securities/1 or /securities/1.json
