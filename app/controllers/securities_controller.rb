@@ -1,5 +1,6 @@
 class SecuritiesController < ApplicationController
-  before_action :set_security, only: %i[ show edit update destroy ]
+  #before_action :set_security, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
 
   # GET /securities or /securities.json
   def index
@@ -65,6 +66,6 @@ class SecuritiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def security_params
-      params.require(:security).permit(:security_simbol, :creation_date)
+      params.require(:security).permit(:security_simbol, :creation_date, :security_desc)
     end
 end

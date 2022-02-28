@@ -22,7 +22,7 @@ class SecuritysTransaction < ApplicationRecord
 
   def as_json(_option)
       super ({ 
-        only: [:name_fund, :desc_transaction, :value_transaction, :security_simbol,  :date_transaction]
+        only: [:name_fund, :desc_transaction, :value_transaction, :security_simbol,  :date_transaction, :quantity]
     })
   end
  end

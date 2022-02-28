@@ -1,9 +1,10 @@
 class SecuritysTransactionsController < ApplicationController
-  before_action :set_securitys_transaction, only: %i[ show edit update destroy ]
+  #before_action :set_securitys_transaction, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
 
   # GET /securitys_transactions or /securitys_transactions.json
   def index
-    render json: SecuritysTransaction.select("name_fund, desc_transaction, value_transaction, security_simbol, date_transaction").joins(:fund, :security);
+    render json: SecuritysTransaction.select("name_fund, desc_transaction, value_transaction, security_simbol, date_transaction, quantity").joins(:fund, :security);
   end
 
   # GET /securitys_transactions/1 or /securitys_transactions/1.json
@@ -65,6 +66,6 @@ class SecuritysTransactionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def securitys_transaction_params
-      params.require(:securitys_transaction).permit(:desc_transaction, :value_transaction, :date_transaction, :fund_id, :security_id)
+      params.require(:security_transactions).permit(:desc_transaction, :value_transaction, :date_transaction, :fund_id, :security_id, :quantity)
     end
 end
