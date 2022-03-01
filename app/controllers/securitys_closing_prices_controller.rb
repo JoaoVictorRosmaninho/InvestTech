@@ -1,9 +1,10 @@
 class SecuritysClosingPricesController < ApplicationController
   before_action :set_securitys_closing_price, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
 
   # GET /securitys_closing_prices or /securitys_closing_prices.json
   def index
-    @securitys_closing_prices = SecuritysClosingPrice.all
+    render json: SecuritysClosingPrice.select("securitys_closing_prices.id as id, security_simbol, closing_price, date_closing").joins(:security)
   end
 
   # GET /securitys_closing_prices/1 or /securitys_closing_prices/1.json

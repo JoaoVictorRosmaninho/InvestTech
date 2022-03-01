@@ -3,7 +3,7 @@ class CashTransaction < ApplicationRecord
   
   def as_json(_option)
     super({ 
-      only: [:name_fund, :desc_transaction, :valor_transaction, :data_transection]
+      only: [:id, :name_fund, :desc_transaction, :valor_transaction, :data_transection]
     })
   end
 end

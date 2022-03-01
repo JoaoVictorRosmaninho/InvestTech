@@ -1,5 +1,5 @@
 class FundsController < ApplicationController
-  #before_action :set_fund, only: %i[ show edit update destroy ]
+  before_action :set_fund, only: %i[ show edit update destroy ]
   skip_before_action :verify_authenticity_token
   # GET /funds or /funds.json
   def index
@@ -49,6 +49,7 @@ class FundsController < ApplicationController
 
   # DELETE /funds/1 or /funds/1.json
   def destroy
+    @fund = Fund.find(params[:id]);
     @fund.destroy
 
     respond_to do |format|

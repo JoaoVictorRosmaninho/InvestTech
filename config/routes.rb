@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   get '/precoAtivos', to: 'securitys_closing_prices#index'
   get '/transacaoAtivos', to: 'securitys_transactions#index'
   get "/portifolios/:id/:date", to: "portifolios#index"
+  get "/precos/historico", to: "securitys_closing_prices#index"
 end

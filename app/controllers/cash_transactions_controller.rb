@@ -1,10 +1,10 @@
 class CashTransactionsController < ApplicationController
-  #before_action :set_cash_transaction, only: %i[ show edit update destroy ]
+  before_action :set_cash_transaction, only: %i[ show edit update destroy ]
   skip_before_action :verify_authenticity_token
 
   # GET /cash_transactions or /cash_transactions.json
   def index
-    render json: CashTransaction.select("name_fund, desc_transaction, valor_transaction, data_transection").joins(:fund);
+    render json: CashTransaction.select("cash_transactions.id as id, name_fund, desc_transaction, valor_transaction, data_transection").joins(:fund);
   end
 
   # GET /cash_transactions/1 or /cash_transactions/1.json
@@ -61,7 +61,7 @@ class CashTransactionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cash_transaction
-      @cash_transaction = CashTransaction.find(params[:id])
+      @cash_transaction = CashTransaction.find(params[:id]);
     end
 
     # Only allow a list of trusted parameters through.

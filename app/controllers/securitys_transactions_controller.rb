@@ -1,10 +1,10 @@
 class SecuritysTransactionsController < ApplicationController
-  #before_action :set_securitys_transaction, only: %i[ show edit update destroy ]
+  before_action :set_securitys_transaction, only: %i[ show edit update destroy ]
   skip_before_action :verify_authenticity_token
 
   # GET /securitys_transactions or /securitys_transactions.json
   def index
-    render json: SecuritysTransaction.select("name_fund, desc_transaction, value_transaction, security_simbol, date_transaction, quantity").joins(:fund, :security);
+    render json: SecuritysTransaction.select("securitys_transactions.id as id,  name_fund, desc_transaction, value_transaction, security_simbol, date_transaction, quantity").joins(:fund, :security);
   end
 
   # GET /securitys_transactions/1 or /securitys_transactions/1.json
