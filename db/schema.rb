@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_20_183630) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_03_213213) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cash_transactions", force: :cascade do |t|
     t.text "desc_transaction"
-    t.float "valor_transaction"
-    t.date "data_transection"
+    t.float "value_transaction"
+    t.date "date_transaction"
     t.integer "fund_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

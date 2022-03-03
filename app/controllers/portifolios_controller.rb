@@ -21,9 +21,9 @@ class PortifoliosController < ApplicationController
   def saldoCaixa
     render json: CashTransaction
         .where(fund_id: params[:id])
-        .where("data_transection <= ?", params[:date])
+        .where("date_transaction <= ?", params[:date])
         .group("fund_id")
-        .sum(:valor_transaction);
+        .sum(:value_transaction);
   end
 
 end

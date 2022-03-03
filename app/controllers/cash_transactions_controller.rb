@@ -4,7 +4,7 @@ class CashTransactionsController < ApplicationController
 
   # GET /cash_transactions or /cash_transactions.json
   def index
-    render json: CashTransaction.select("cash_transactions.id as id, name_fund, desc_transaction, valor_transaction, data_transection").joins(:fund);
+    render json: CashTransaction.select("cash_transactions.id as id, name_fund, desc_transaction, value_transaction, date_transaction").joins(:fund);
   end
 
   # GET /cash_transactions/1 or /cash_transactions/1.json
@@ -66,6 +66,6 @@ class CashTransactionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cash_transaction_params
-      params.require(:cash_transaction).permit(:desc_transaction, :valor_transaction, :data_transection, :fund_id)
+      params.require(:cash_transaction).permit(:desc_transaction, :value_transaction, :date_transaction, :fund_id)
     end
 end
