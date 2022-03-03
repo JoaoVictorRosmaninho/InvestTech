@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   get '/ativos', to: 'securities#index'
   get '/precoAtivos', to: 'securitys_closing_prices#index'
   get '/transacaoAtivos', to: 'securitys_transactions#index'
-  get "/portifolios/:id/:date", to: "portifolios#index"
   get "/precos/historico", to: "securitys_closing_prices#index"
+  #portifolio
+  get "/portifolios/saldo/:id/:date", to: "portifolios#saldoCaixa"
+  get "/portifolios/ativos/:id/:date", to: "portifolios#totalAtivos"
+  get "/portifolios/ativos/:id", to: "portifolios#totalAtivos"
 end
