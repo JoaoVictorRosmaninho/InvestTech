@@ -4,7 +4,13 @@ class SecuritysClosingPricesController < ApplicationController
 
   # GET /securitys_closing_prices or /securitys_closing_prices.json
   def index
-    render json: SecuritysClosingPrice.select("securitys_closing_prices.id as id, security_simbol, closing_price, date_closing").joins(:security)
+    render json: SecuritysClosingPrice.closingPrices
+  end
+
+  def getPrice
+    date = params[:date] ? params[:date] : Date.yesterday
+
+    render json: SecuritysClosingPrice.sendPrice(params[:id], date); 
   end
 
   # GET /securitys_closing_prices/1 or /securitys_closing_prices/1.json

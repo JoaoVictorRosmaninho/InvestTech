@@ -4,7 +4,7 @@ class CashTransactionsController < ApplicationController
 
   # GET /cash_transactions or /cash_transactions.json
   def index
-    render json: CashTransaction.select("cash_transactions.id as id, name_fund, desc_transaction, value_transaction, date_transaction").joins(:fund);
+    render json: CashTransaction.listTransactionsWithFund
   end
 
   # GET /cash_transactions/1 or /cash_transactions/1.json
