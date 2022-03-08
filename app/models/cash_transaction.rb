@@ -5,6 +5,7 @@ class CashTransaction < ApplicationRecord
     all
       .select("id, fund_id, desc_transaction, value_transaction, date_transaction")
       .includes(:fund)
+      .order(:id)
       .as_json(include: {fund: {only: [:name_fund]}})
   end
   
