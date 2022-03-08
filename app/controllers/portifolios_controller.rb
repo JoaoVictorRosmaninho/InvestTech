@@ -14,10 +14,10 @@ class PortifoliosController < ApplicationController
   def PLfund
     date = params[:date] ? params[:date] : Date.today
     totalSecurityTransactions = SecuritysTransaction
-      .where("fund_id = ?", params[:id])
+      .where("fund_id = ? and date_transaction <= ?", params[:id], date)
       .sum("value_transaction * quantity")  
     totalCashTransactions = CashTransaction
-      .where("fund_id = ?", params[:id])
+      .where("fund_id = ? and date_transaction <= ?", params[:id], date)
       .sum("value_transaction")
     totalOverall = totalSecurityTransactions + totalCashTransactions
     render json: {pl: totalOverall}
