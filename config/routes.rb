@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   #portifolio
   get "/portifolios/saldo/:id/:date", to: "portifolios#totalCashTransactions"
   get "/portifolios/saldo/:id", to: "portifolios#totalCashTransactions"
+  get "/portifolios/transacoes/:id", to: "portifolios#listTransactionsByFund"
+  get "/portifolios/transacoes/:id/:date", to: "portifolios#listTransactionsByFund"
 
   get "/portifolios/ativos/:id/:date", to: "portifolios#totalAtivos"
   get "/portifolios/ativos/:id", to: "portifolios#totalAtivos"

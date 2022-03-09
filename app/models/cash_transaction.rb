@@ -8,6 +8,14 @@ class CashTransaction < ApplicationRecord
       .order(:id)
       .as_json(include: {fund: {only: [:name_fund]}})
   end
+
+  def self.listTransactionsByFund(fund_id, date)
+    all
+      .where(fund_id: fund_id)
+      .where("date_transaction <= ?", date)
+      .order(:id)
+      .as_json
+  end
   
   def self.totalCashTransactions(id, date)
   all

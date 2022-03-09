@@ -3,12 +3,19 @@ class PortifoliosController < ApplicationController
     #render json: SecuritysTransaction.security_information(params[:id], Date.parse(params[:date]))
   end
   
-  def totalAtivos 
-    render json: SecuritysTransaction.security_information(params[:id], params[:date] ? params[:date] : Date.today);
+  def totalAtivos
+    date = params[:date] ? params[:date] : Date.today 
+    render json: SecuritysTransaction.security_information(params[:id], date);
   end  
 
   def totalCashTransactions
-    render json: CashTransaction.totalCashTransactions(params[:id], params[:date] ? params[:date] : Date.today)
+    date = params[:date] ? params[:date] : Date.today
+    render json: CashTransaction.totalCashTransactions(params[:id], date)
+  end
+
+  def listTransactionsByFund
+    date = params[:date] ? params[:date] : Date.today
+    render json: CashTransaction.listTransactionsByFund(params[:id], date)
   end
 
   def PLfund
