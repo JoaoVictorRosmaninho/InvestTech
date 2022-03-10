@@ -1,5 +1,6 @@
 class SecuritysTransaction < ApplicationRecord
 	belongs_to :security
+	has_one   :securitys_closing_prices, through: :security
 	belongs_to :fund
 
 	def self.transactions
@@ -15,8 +16,11 @@ class SecuritysTransaction < ApplicationRecord
 		 	.where(fund_id: fund_id)
 		 	.where("date_transaction <= ?", date)
 		 	.having("sum(quantity) <> 0")
-			.includes(:security)
-			.as_json(include: {security: {only: [:security_simbol]}})
+			.includes(:security, :securitys_closing_prices)
+			.as_json(include: {
+				security: {only: [:security_simbol]}, 
+				securitys_closing_prices: {only: :closing_price}
+			})
 	end
 
 	def self.security_total(fund_id, date)

@@ -18,15 +18,20 @@ Rails.application.routes.draw do
 
   get '/transacaoAtivos', to: 'securitys_transactions#index'
   get "/precos/historico", to: "securitys_closing_prices#index"
+  
   #portifolio
+
+  #obter transacoes de caixa por fundo
   get "/portifolios/saldo/:id/:date", to: "portifolios#totalCashTransactions"
   get "/portifolios/saldo/:id", to: "portifolios#totalCashTransactions"
   get "/portifolios/transacoes/:id", to: "portifolios#listTransactionsByFund"
   get "/portifolios/transacoes/:id/:date", to: "portifolios#listTransactionsByFund"
 
+  #obter ativos por fundo
   get "/portifolios/ativos/:id/:date", to: "portifolios#totalAtivos"
   get "/portifolios/ativos/:id", to: "portifolios#totalAtivos"
 
+  #obter pl por fundo
   get "/portifolios/pl/:id/:date", to: "portifolios#PLfund"
   get "/portifolios/pl/:id", to: "portifolios#PLfund"
 end
