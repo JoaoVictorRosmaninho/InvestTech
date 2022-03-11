@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_07_222605) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_10_011141) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +27,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_222605) do
     t.string "name_fund"
     t.text "desc_fund"
     t.date "creation_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pl_funds", force: :cascade do |t|
+    t.float "closing_pl"
+    t.date "closing_date"
+    t.integer "fund_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -60,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_222605) do
   end
 
   add_foreign_key "cash_transactions", "funds"
+  add_foreign_key "pl_funds", "funds"
   add_foreign_key "securitys_closing_prices", "securities"
   add_foreign_key "securitys_transactions", "funds"
   add_foreign_key "securitys_transactions", "securities"

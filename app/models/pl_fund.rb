@@ -1,0 +1,2 @@
+class PlFund < ApplicationRecord
+end

@@ -11,6 +11,16 @@ class SecuritysClosingPrice < ApplicationRecord
       .as_json(only: :closing_price)
   end
 
+  def self.sendPriceClose(security_id, date) 
+    price = all
+      .select("security_id, closing_price, date_closing")
+      .where(security_id: security_id)
+      .where("date_closing <= ?", date)
+      .order("date_closing desc")
+      .limit(1)
+    return price.first.closing_price
+  end
+
   def self.closingPrices 
     all
       .select("id, closing_price, date_closing, security_id")

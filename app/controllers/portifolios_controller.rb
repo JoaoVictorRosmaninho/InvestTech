@@ -3,10 +3,16 @@ class PortifoliosController < ApplicationController
     #render json: SecuritysTransaction.security_information(params[:id], Date.parse(params[:date]))
   end
   
-  def totalAtivos
+ def totalAtivos
     date = params[:date] ? params[:date] : Date.today 
-    render json: SecuritysTransaction.security_information(params[:id], date);
-  end  
+    tmp = SecuritysTransaction.security_information(params[:id], date).map do |transaction|
+      temp = transaction.to_h
+      temp['closing_price'] =  SecuritysClosingPrice.sendPrice(transaction.security_id, date).first
+      temp
+    end
+    render json: tmp    
+ end  
+
 
   def totalCashTransactions
     date = params[:date] ? params[:date] : Date.today
